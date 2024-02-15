@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require("fs");
-const conventionalCommitMessage = /ASTONJS-1\s(chore|feat|fix):\s.+/g;
+const conventionalCommitMessage = /ASTONJS-\d\s\[(chore|feat|fix)\]:\s.+/g;
 let exitCode = 0;
 const commitMsgFile = process.argv[2];
 const message = fs.readFileSync(commitMsgFile, "utf8");
@@ -9,7 +9,7 @@ const isValid = conventionalCommitMessage.test(message);
 
 if (!isValid) {
     console.log(
-        'Cannot commit: the commit message does not comply with conventional commits standards. Please, use this standard: "ASTONJS-1 tipe: description"'
+        'Cannot commit: the commit message does not comply with conventional commits standards. Please, use this standard: "ASTONJS-number [tipe]: description"'
     );
     exitCode = 1;
 }
