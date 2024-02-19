@@ -2,18 +2,25 @@
 Функция должна вывести в консоль длину (length) этого значения, если это возможно, иначе вывести в консоль 0. */
 
 function getLength(value) {
-    if (typeof value !== "string" && !Array.isArray(value)) {
+    if (value === undefined || value === null) {
         console.log(0);
         return;
     }
-
-    console.log(value.length);
+    if (value.length) {
+        console.log(value.length);
+        return;
+    }
+    if (value.size) {
+        console.log(value.size);
+        return;
+    }
+    console.log(0);
 }
 
 /* Напишите функцию compare, принимающую на вход два объекта Node, и возвращающую true,
 если они имеют одинаковую структуру и значения и false в ином случае. */
 
-function compare(n1, n2) {
+const compare = (n1, n2) => {
     if (n1 === null && n2 === null) {
         return true;
     }
@@ -65,4 +72,4 @@ function compare(n1, n2) {
         return true;
     }
     return false;
-}
+};
