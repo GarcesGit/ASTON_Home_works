@@ -9,7 +9,6 @@ function getLength(value) {
 
     console.log(value.length);
 }
-getLength(true);
 
 /* Напишите функцию compare, принимающую на вход два объекта Node, и возвращающую true,
 если они имеют одинаковую структуру и значения и false в ином случае. */
